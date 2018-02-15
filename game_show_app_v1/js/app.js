@@ -66,20 +66,32 @@ letters.addEventListener( "click", (e) => {
         key.className += " chosen";
         key.setAttribute("disabled", "");
         if (missed >= 5) {
-            var x = document.querySelectorAll(".chosen");
-            x.classList.remove("chosen");
-            x.removeAttribute("disabled");
+            var p = document.createElement("P");
+            var text = document.createTextNode("Too bad. You missed 5 times. Try again, you might succeed now. It is wheel of success afterall ;)");
+            p.appendChild(text);
+            start.parentElement.appendChild(p);
+            start.parentElement.classList.remove("start");
+            start.parentElement.setAttribute("class", "lose");
+            start.parentElement.style.display = "inline";
+            start.innerHTML = "Argh...";
+            start.addEventListener( "click", () => {
+                window.location = "index.html";
+            });
             console.log("niet");
         }
         let letters2 = document.querySelectorAll(".letter");
         let shown = document.querySelectorAll(".show");
         if (letters2.length == shown.length) {
+            var p = document.createElement("P");
+            var text = document.createTextNode("A wheel of success spins happily as you stand victorious! Hoorah!");
+            p.appendChild(text);
+            start.parentElement.appendChild(p);
             start.parentElement.classList.remove("start");
             start.parentElement.setAttribute("class", "win");
             start.parentElement.style.display = "inline";
             start.innerHTML = "Yay";
             start.addEventListener( "click", () => {
-                window.location = "index.html"
+                window.location = "index.html";
             });
         }
     }
