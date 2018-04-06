@@ -27,6 +27,9 @@ function addPhraseToDisplay(arr) {
         if (game.lastElementChild.textContent != " ") {
             game.lastElementChild.className += " letter";
         }
+        else{
+            game.lastElementChild.className += " space";
+        }
     }
 };
 
